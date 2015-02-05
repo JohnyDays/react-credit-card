@@ -95,7 +95,15 @@ module.exports = React.createClass
     if @props.expiry is ""
       return "**/**"
     else
+
       expiry = @props.expiry.toString()
+
+      if expiry.match /\//
+        expiry = expiry.replace("/", "")
+
+      if !expiry.match /^[0-9]*$/
+        return "**/**"
+
       if expiry.length > 2
         expiry = expiry.slice(0, 2) + "/" + expiry.slice(2, expiry.length)
       return expiry
