@@ -1,5 +1,8 @@
 
 React = require('react')
+cards = require('./card-types.js')
+
+prefix = "react-card"
 
 module.exports = React.createClass
 
@@ -16,11 +19,11 @@ module.exports = React.createClass
     shinyAfterBack: ''
 
   render:->
-    <div className = {"react-card" + if @props.focused is "cvc" then " react-card--flipped" else ""} >
+    <div className = {"#{prefix} " + @state.type.name + if @props.focused is "cvc" then " #{prefix}--flipped" else ""} >
 
-      <div className = "react-card__front" >
-        <div className = "react-card__lower">
-          <div className = "react-card__shiny"/>
+      <div className = "#{prefix}__front" >
+        <div className = "#{prefix}__lower">
+          <div className = "#{prefix}__shiny"/>
           <div className = {@displayClassName("number")}>{@getValue("number")}</div>
           <div className = {@displayClassName("name")}  >{@getValue("name")}</div>
           <div
@@ -31,30 +34,46 @@ module.exports = React.createClass
         </div>
       </div>
 
-      <div className = "react-card__back">
-        <div className = "react-card__bar"/>
+      <div className = "#{prefix}__back">
+        <div className = "#{prefix}__bar"/>
         <div className = {@displayClassName("cvc")}>{@getValue("cvc")}</div>
-        <div className = "react-card__shiny" data-after = {@props.shinyAfterBack}/>
+        <div className = "#{prefix}__shiny" data-after = {@props.shinyAfterBack}/>
       </div>
     </div>
 
   displayClassName:(base)->
-    className = "react-card__" + base + " react-card__display"
+    className = "#{prefix}__" + base + " #{prefix}__display"
 
     if @props.focused is base
-      className += " react-card--focused"
+      className += " #{prefix}--focused"
 
     return className
 
   getValue:(name)-> @[name]()
+
+  componentWillMount:       -> @updateType()
+  componentWillReceiveProps:-> @updateType()
+  getInitialState:          -> name:"unknown", length: 16
+  updateType:->
+
+    if !@props.number
+      return @setState type: name:"unknown", length: 16
+
+    for card in cards
+      if card.pattern.test @props.number.toString()
+        return @setState type: card
+
+    return @setState type: name:"unknown", length: 16
+
 
   number:->
     if !@props.number
       return "**** **** **** ****"
     else
       string = @props.number.toString()
-      amount_of_spaces = Math.floor(string.length/4)
-      for i in [1...amount_of_spaces] by step
+      if string.length > @state.type.length then string = string.slice(0, @state.type.length)
+      amount_of_spaces = Math.ceil(string.length/4)
+      for i in [1...amount_of_spaces]
         space_index = (i*4 + (i - 1))
         string = string.slice(0, space_index) + " " + string.slice(space_index)
       return string
