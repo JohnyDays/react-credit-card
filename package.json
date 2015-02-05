@@ -29,6 +29,7 @@
     "watchify": "^2.3.0"
   },
   "dependencies": {
+    "payment": "0.0.5",
     "react": "^0.12.2"
   }
 }

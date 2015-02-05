@@ -1,0 +1,24 @@
+.react-card--dankort .react-card__front,
+.react-card--dankort .react-card__back{
+  background: #0055C7;
+}
+
+.react-card--discover .react-card__front,
+.react-card--discover .react-card__back{
+  background: #86B8CF;
+}
+
+.react-card--mastercard .react-card__front,
+.react-card--mastercard .react-card__back{
+  background: #0061A8;
+}
+
+.react-card--visa .react-card__front,
+.react-card--visa .react-card__back{
+  background: #191278;
+}
+
+.react-card--amex .react-card__front,
+.react-card--amex .react-card__back{
+  background-color: #108168;
+}

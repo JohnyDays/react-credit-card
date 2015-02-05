@@ -1,8 +1,17 @@
-.react-card{
-  border-radius: 10px;
+.react-card__container{
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+}
+
+.react-card, .react-card__container{
   width: 100%;
   height: 100%;
   min-width: 315px;
+  position: relative;
+}
+
+.react-card{
+  border-radius: 10px;
   line-height: 1;
   position: relative;
   -webkit-transform-style: preserve-3d;
@@ -14,15 +23,16 @@
   -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
+
 .react-card--flipped{
   -webkit-transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 
-.react-card--identified{
-  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+.react-card--unknown{
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .react-card__front,
@@ -42,7 +52,7 @@
   left: 0;
   overflow: hidden;
   border-radius: 10px;
-  background: #86B8CF;
+  background: #DDDDDD;
 }
 
 .react-card__back{
@@ -71,6 +81,12 @@
   opacity: 0.5;
   -webkit-transition: opacity 400ms linear;
   transition: opacity 400ms linear;
+}
+
+.react-card__logo{
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .react-card__number{

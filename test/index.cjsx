@@ -33,7 +33,7 @@ value = (name)->
 React.render(
   <div className='form'>
     <input
-      type    = 'text'
+      type    = 'number'
       onFocus = {focus('number')}
       onBlur  = {unfocus('number')}
       onInput = {value('number')}
@@ -45,13 +45,13 @@ React.render(
       onInput = {value('name')}
     />
     <input
-      type    = 'text'
+      type    = 'number'
       onFocus = {focus('expiry')}
       onBlur  = {unfocus('expiry')}
       onInput = {value('expiry')}
     />
     <input
-      type    = 'text'
+      type    = 'number'
       onFocus = {focus('cvc')}
       onBlur  = {unfocus('cvc')}
       onInput = {value('cvc')}

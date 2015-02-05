@@ -1,6 +1,6 @@
-var isWin = /^win/.test(process.platform)
+var isWindows = /^win/.test(process.platform)
 
-if(isWin){
+if(isWindows){
   spawn = require('child_process').exec
   spawn(__dirname + "/node_modules/.bin/cjsx.cmd -o build -cw source")
   spawn(__dirname + "/node_modules/.bin/cjsx.cmd -cw test/index.cjsx")
