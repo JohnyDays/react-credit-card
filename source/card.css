@@ -149,6 +149,17 @@
   position: relative;
 }
 
+.react-card__shiny:after {
+  content: attr(data-after);
+  position: absolute;
+  left: 120%;
+  top: 5%;
+  color: white;
+  font-size: 7px;
+  width: 230px;
+  opacity: 0.5;
+}
+
 .react-card__shiny:before{
   content: " ";
   display: block;

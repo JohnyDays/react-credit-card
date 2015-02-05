@@ -13,6 +13,7 @@ module.exports = React.createClass
     focused: null
     expiryBefore: 'month/year'
     expiryAfter: 'valid thru'
+    shinyAfterBack: ''
 
   render:->
     <div className = {"react-card" + if @props.focused is "cvc" then " react-card--flipped" else ""} >
@@ -33,7 +34,7 @@ module.exports = React.createClass
       <div className = "react-card__back">
         <div className = "react-card__bar"/>
         <div className = {@displayClassName("cvc")}>{@getValue("cvc")}</div>
-        <div className = "react-card__shiny"/>
+        <div className = "react-card__shiny" data-after = {@props.shinyAfterBack}/>
       </div>
     </div>
 

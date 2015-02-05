@@ -1,8 +1,15 @@
 
 React = require('react')
 Card  = require('../build/card.js')
-
-Card = React.render(<Card />, document.getElementById('container'))
+lorem = "
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.
+  Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent
+  mauris. Fusce nec tellus sed augue semper porta. Mauris massa.
+"
+Card = React.render(
+  <Card shinyAfterBack = {lorem} />,
+document.getElementById('container'))
 
 focused = null
 
