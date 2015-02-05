@@ -31,7 +31,9 @@ module.exports = React.createClass
       </div>
 
       <div className = "react-card__back">
+        <div className = "react-card__bar"/>
         <div className = {@displayClassName("cvc")}>{@getValue("cvc")}</div>
+        <div className = "react-card__shiny"/>
       </div>
     </div>
 
