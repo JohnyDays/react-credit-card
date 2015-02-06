@@ -19,7 +19,7 @@
 #### How to use (Check the test index.cjsx for a better overview)
 
 ```jsx
-Card = require('react-card')
+Card = require('react-credit-card')
 React.render(
  <Card 
     cvc = {myForm.props.cvc} 
