@@ -111,21 +111,25 @@
       });
     },
     number: function() {
-      var amount_of_spaces, i, space_index, string, _i;
+      var amountOfSpaces, i, maxLength, space_index, string, _i;
       if (!this.props.number) {
-        return "**** **** **** ****";
+        string = "";
       } else {
         string = this.props.number.toString();
-        if (string.length > this.state.type.length) {
-          string = string.slice(0, this.state.type.length);
-        }
-        amount_of_spaces = Math.ceil(string.length / 4);
-        for (i = _i = 1; 1 <= amount_of_spaces ? _i < amount_of_spaces : _i > amount_of_spaces; i = 1 <= amount_of_spaces ? ++_i : --_i) {
-          space_index = i * 4 + (i - 1);
-          string = string.slice(0, space_index) + " " + string.slice(space_index);
-        }
-        return string;
       }
+      maxLength = this.state.type.length;
+      if (string.length > maxLength) {
+        string = string.slice(0, maxLength);
+      }
+      while (string.length < maxLength) {
+        string += "•";
+      }
+      amountOfSpaces = Math.ceil(maxLength / 4);
+      for (i = _i = 1; 1 <= amountOfSpaces ? _i < amountOfSpaces : _i > amountOfSpaces; i = 1 <= amountOfSpaces ? ++_i : --_i) {
+        space_index = i * 4 + (i - 1);
+        string = string.slice(0, space_index) + " " + string.slice(space_index);
+      }
+      return string;
     },
     name: function() {
       if (this.props.name === "") {
@@ -135,26 +139,28 @@
       }
     },
     expiry: function() {
-      var expiry;
+      var expiry, expiryMaxLength;
       if (this.props.expiry === "") {
-        return "**/**";
+        return "••/••";
       } else {
         expiry = this.props.expiry.toString();
+        expiryMaxLength = 6;
         if (expiry.match(/\//)) {
           expiry = expiry.replace("/", "");
         }
         if (!expiry.match(/^[0-9]*$/)) {
-          return "**/**";
+          return "••/••";
         }
-        if (expiry.length > 2) {
-          expiry = expiry.slice(0, 2) + "/" + expiry.slice(2, expiry.length);
+        while (expiry.length < 4) {
+          expiry += "•";
         }
+        expiry = expiry.slice(0, 2) + "/" + expiry.slice(2, expiryMaxLength);
         return expiry;
       }
     },
     cvc: function() {
       if (this.props.cvc === null) {
-        return "***";
+        return "•••";
       } else {
         if (this.props.cvc.toString().length <= 4) {
           return this.props.cvc;

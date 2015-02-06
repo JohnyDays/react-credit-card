@@ -59,6 +59,7 @@ React.render(
 
 - There is no intention to port the form or validation part of [Card](http://github.com/jessepollak/card). This is merely for display.
 - Flat background colors for the various cards.
+- Placeholder symbols are progressively filled while changing the values.
 
 #### Development
 

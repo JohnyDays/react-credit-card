@@ -75,15 +75,24 @@ module.exports = React.createClass
 
   number:->
     if !@props.number
-      return "**** **** **** ****"
+      string = ""
     else
       string = @props.number.toString()
-      if string.length > @state.type.length then string = string.slice(0, @state.type.length)
-      amount_of_spaces = Math.ceil(string.length/4)
-      for i in [1...amount_of_spaces]
-        space_index = (i*4 + (i - 1))
-        string = string.slice(0, space_index) + " " + string.slice(space_index)
-      return string
+
+    maxLength = @state.type.length
+
+    if string.length > maxLength then string = string.slice(0,maxLength)
+
+    while string.length < maxLength
+      string += "•"
+
+    amountOfSpaces = Math.ceil(maxLength/4)
+
+    for i in [1...amountOfSpaces]
+      space_index = (i*4 + (i - 1))
+      string = string.slice(0, space_index) + " " + string.slice(space_index)
+
+    return string
 
   name:->
     if @props.name is ""
@@ -93,24 +102,29 @@ module.exports = React.createClass
 
   expiry:->
     if @props.expiry is ""
-      return "**/**"
+      return "••/••"
     else
 
       expiry = @props.expiry.toString()
+
+      expiryMaxLength = 6 # 2 for month and 4 for year
 
       if expiry.match /\//
         expiry = expiry.replace("/", "")
 
       if !expiry.match /^[0-9]*$/
-        return "**/**"
+        return "••/••"
 
-      if expiry.length > 2
-        expiry = expiry.slice(0, 2) + "/" + expiry.slice(2, expiry.length)
+      while expiry.length < 4
+        expiry += "•"
+
+      expiry = expiry.slice(0, 2) + "/" + expiry.slice(2, expiryMaxLength)
+
       return expiry
 
   cvc:->
     if @props.cvc is null
-      return "***"
+      return "•••"
     else
       return if @props.cvc.toString().length <= 4 then @props.cvc else @props.cvc.toString().slice(0, 4)
 

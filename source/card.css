@@ -1,9 +1,9 @@
 .react-credit-card__container{
+  position: relative;
   -webkit-perspective: 1000px;
   perspective: 1000px;
   width:  350px;
   height: 200px;
-  position: relative;
 }
 
 .react-credit-card{
@@ -102,6 +102,7 @@
   -webkit-box-orient: horizontal;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 1.2em;
 }
 
 .react-credit-card__expiry{
@@ -179,6 +180,7 @@
   border-bottom-right-radius: 5px;
   background: #d9d9d9;
   position: absolute;
+  top: 20%;
 }
 
 .react-credit-card__bar{
