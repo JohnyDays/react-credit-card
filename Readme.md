@@ -14,7 +14,7 @@
 #### How to install
   
 - `npm install react-card`
-- Add the `build/card.css` and `build/card-types.css` file to your app's stylesheets (This step may be unnecessary in the future)
+- Add the `build/card.css` and `build/card-types.css` files to your app's stylesheets (This step may be unnecessary in the future)
 
 #### How to use (Check the test index.cjsx for a better overview)
 
@@ -46,13 +46,13 @@ React.render(
 
 #### Missing features towards the intended goals
 
-- Images are inlined using base64 [Card](http://github.com/jessepollak/card) uses images created with css.
-- Maybe inline styles according to facebook's new guidelines, for now the styles are in a separate stylesheet.
+- Images are inlined using base64, [Card](http://github.com/jessepollak/card) uses images created with css.
 
 #### Planned improvements
 
 - Allow for some way to indicate that a field is invalid, and style appropriately to indicate errors. 
 - Add more credit card variations, to the extent that [Payment](http://github.com/jessepollak/card) supports. 
+- Maybe inline styles according to facebook's new guidelines, for now the styles are in a separate stylesheet.
 - Automated test suite.
 
 #### Intentional deviations
