@@ -1,5 +1,4 @@
 node_modules
-build
 npm-debug.log
 test/bundle.js
 test/index.js

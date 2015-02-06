@@ -116,4 +116,4 @@ module.exports = React.createClass
 
 
 exp = module.exports
-exp.prefix = "react-card"
+exp.prefix = "react-credit-card"

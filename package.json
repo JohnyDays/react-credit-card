@@ -1,15 +1,15 @@
 {
-  "name": "react-card",
+  "name": "react-credit-card",
   "version": "0.9.0",
   "description": "Display credit cards(inspired by Card.js)",
   "main": "build/card.js",
   "scripts": {
     "test": "node start.js",
-    "start": "./node_modules/.bin/cjsx -o build -cw source"
+    "start": "node start.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/JohnyDays/react-card"
+    "url": "https://github.com/JohnyDays/react-credit-card"
   },
   "keywords": [
     "react",
@@ -17,12 +17,12 @@
     "card",
     "component"
   ],
-  "author": "Johnydays @JohnyDays",
+  "author": "João Dias",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JohnyDays/react-card/issues"
+    "url": "https://github.com/JohnyDays/react-credit-card/issues"
   },
-  "homepage": "https://github.com/JohnyDays/react-card",
+  "homepage": "https://github.com/JohnyDays/react-credit-card",
   "devDependencies": {
     "browserify": "^8.1.3",
     "coffee-react": "^2.1.2",

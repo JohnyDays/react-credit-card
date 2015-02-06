@@ -8,21 +8,18 @@ body, html{
 }
 
 #test-container{
-  width: 500px;
-  height: 350px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
 }
 
-#form{
+#form, .form{
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: stretch;
 }
 
 #container{
-  width: 350px;
-  height: 200px;
   margin-bottom: 30px;
 }
