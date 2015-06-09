@@ -43,6 +43,12 @@ React.render(
   - `expiryAfter`: The text displayed on the left of the expiry date
   - `expiryBefore`: The text displayed above the expiry date
   - `shinyAfterBack`: The text displayed at the back of the card near the shiny thing
+  - `type`: Available in case you need to explicitly specify the card type. In most cases this will be inferred for you as the user fills the form, so you won't need to use it. One of the following:
+    - dankort
+    - discover
+    - mastercard
+    - visa
+    - amex
 
 #### Missing features towards the intended goals
 
