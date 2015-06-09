@@ -17,6 +17,7 @@ module.exports = React.createClass
     expiryBefore: 'month/year'
     expiryAfter: 'valid thru'
     shinyAfterBack: ''
+    type:null
 
   render:->
     <div className = "#{exp.prefix}__container">
@@ -55,7 +56,7 @@ module.exports = React.createClass
 
     return className
 
-  typeClassName:-> "#{exp.prefix}--" + @state.type.name
+  typeClassName:-> "#{exp.prefix}--" + if @props.type then @props.type else @state.type.name
 
   getValue:(name)-> @[name]()
 
