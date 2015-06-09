@@ -8,8 +8,8 @@ if(isWindows){
 }
 else{
   spawn = require('child_process').spawn
-  spawn(__dirname + "/node_modules/.bin/cjsx.cmd -o build -cw source", {stdio:'inherit', stderr:'inherit'})
-  spawn(__dirname + "/node_modules/.bin/cjsx.cmd -cw test/index.cjsx", {stdio:'inherit', stderr:'inherit'})
-  spawn(__dirname + "/node_modules/.bin/watchify.cmd test/index.js -o test/bundle.js", {stdio:'inherit', stderr:'inherit'})
+  spawn(__dirname + "/node_modules/.bin/cjsx -o build -cw source", {stdio:'inherit', stderr:'inherit'})
+  spawn(__dirname + "/node_modules/.bin/cjsx -cw test/index.cjsx", {stdio:'inherit', stderr:'inherit'})
+  spawn(__dirname + "/node_modules/.bin/watchify test/index.js -o test/bundle.js", {stdio:'inherit', stderr:'inherit'})
 }
 
