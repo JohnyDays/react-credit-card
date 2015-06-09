@@ -28,7 +28,7 @@ module.exports = React.createClass
             <div className = "#{exp.prefix}__shiny"/>
             <img
                  className = {"#{exp.prefix}__logo " + @typeClassName()}
-                 src = {images[@state.type.name]}
+                 src = {images[if @props.type then @props.type else @state.type.name]}
             />
             <div className = {@displayClassName("number")}>{@getValue("number")}</div>
             <div className = {@displayClassName("name")}  >{@getValue("name")}</div>
