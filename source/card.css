@@ -47,10 +47,11 @@
   overflow: hidden;
   border-radius: 10px;
   background: #DDDDDD;
+  z-index: 0;
 }
 
 .react-credit-card__back{
-  webkit-transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }

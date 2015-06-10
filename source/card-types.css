@@ -4,6 +4,10 @@
   box-shadow: none;
 }
 
+.react-credit-card--unknown .react-credit-card__logo {
+    visibility: hidden;
+}
+
 .react-credit-card--dankort .react-credit-card__front,
 .react-credit-card--dankort .react-credit-card__back{
   background: #0055C7;
