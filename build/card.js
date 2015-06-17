@@ -97,12 +97,21 @@
         });
       }
       if (type = validate.cardType(props.number)) {
-        return this.setState({
-          type: {
-            name: type,
-            length: 16
-          }
-        });
+        if (type === "amex") {
+          return this.setState({
+            type: {
+              name: type,
+              length: 15
+            }
+          });
+        } else {
+          return this.setState({
+            type: {
+              name: type,
+              length: 16
+            }
+          });
+        }
       }
       return this.setState({
         type: {
@@ -112,7 +121,7 @@
       });
     },
     number: function() {
-      var amountOfSpaces, i, maxLength, space_index, string, _i;
+      var amountOfSpaces, i, maxLength, space_index, space_index1, space_index2, string, _i;
       if (!this.props.number) {
         string = "";
       } else {
@@ -125,10 +134,16 @@
       while (string.length < maxLength) {
         string += "•";
       }
-      amountOfSpaces = Math.ceil(maxLength / 4);
-      for (i = _i = 1; 1 <= amountOfSpaces ? _i < amountOfSpaces : _i > amountOfSpaces; i = 1 <= amountOfSpaces ? ++_i : --_i) {
-        space_index = i * 4 + (i - 1);
-        string = string.slice(0, space_index) + " " + string.slice(space_index);
+      if (this.state.type.name === "amex") {
+        space_index1 = 4;
+        space_index2 = 10;
+        string = string.substring(0, space_index1) + " " + string.substring(space_index1, space_index2) + " " + string.substring(space_index2);
+      } else {
+        amountOfSpaces = Math.ceil(maxLength / 4);
+        for (i = _i = 1; 1 <= amountOfSpaces ? _i < amountOfSpaces : _i > amountOfSpaces; i = 1 <= amountOfSpaces ? ++_i : --_i) {
+          space_index = i * 4 + (i - 1);
+          string = string.slice(0, space_index) + " " + string.slice(space_index);
+        }
       }
       return string;
     },
