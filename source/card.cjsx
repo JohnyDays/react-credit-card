@@ -69,7 +69,10 @@ module.exports = React.createClass
       return @setState type: name:"unknown", length: 16
 
     if type = validate.cardType(props.number)
-      return @setState type: name:type, length: 16
+      if type is "amex"
+        return @setState type: name:type, length: 15
+      else
+        return @setState type: name:type, length: 16
 
     return @setState type: name:"unknown", length: 16
 
@@ -87,11 +90,17 @@ module.exports = React.createClass
     while string.length < maxLength
       string += "•"
 
-    amountOfSpaces = Math.ceil(maxLength/4)
+    if @state.type.name is "amex"
+      space_index1 = 4;
+      space_index2 = 10;
 
-    for i in [1...amountOfSpaces]
-      space_index = (i*4 + (i - 1))
-      string = string.slice(0, space_index) + " " + string.slice(space_index)
+      string = string.substring(0, space_index1) + " " + string.substring(space_index1, space_index2) + " " + string.substring(space_index2)
+    else
+      amountOfSpaces = Math.ceil(maxLength/4)
+
+      for i in [1...amountOfSpaces]
+        space_index = (i*4 + (i - 1))
+        string = string.slice(0, space_index) + " " + string.slice(space_index)
 
     return string
 
