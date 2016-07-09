@@ -26,10 +26,12 @@
       };
     },
     render: function() {
+      var isAmex;
+      isAmex = this.state.type && this.state.type.name === "amex";
       return React.createElement("div", {
         "className": "" + exp.prefix + "__container"
       }, React.createElement("div", {
-        "className": ("" + exp.prefix + " ") + this.typeClassName() + (this.props.focused === "cvc" ? " " + exp.prefix + "--flipped" : "")
+        "className": ("" + exp.prefix + " ") + this.typeClassName() + (this.props.focused === "cvc" && !isAmex ? " " + exp.prefix + "--flipped" : "")
       }, React.createElement("div", {
         "className": "" + exp.prefix + "__front"
       }, React.createElement("div", {
@@ -39,7 +41,9 @@
       }), React.createElement("img", {
         "className": ("" + exp.prefix + "__logo ") + this.typeClassName(),
         "src": images[this.props.type ? this.props.type : this.state.type.name]
-      }), React.createElement("div", {
+      }), (isAmex ? React.createElement("div", {
+        "className": this.displayClassName("cvc_front")
+      }, this.getValue("cvc")) : void 0), React.createElement("div", {
         "className": this.displayClassName("number")
       }, this.getValue("number")), React.createElement("div", {
         "className": this.displayClassName("name")

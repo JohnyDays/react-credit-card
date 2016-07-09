@@ -210,3 +210,13 @@
   font-family: "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
   font-size: 14px;
 }
+
+.react-credit-card__cvc_front {
+  position: absolute;
+  top: 19%;
+  right: 18%;
+  -webkit-transition-delay: 600ms;
+  transition-delay: 600ms;
+  font-family: "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
+  font-size: 14px;
+}
