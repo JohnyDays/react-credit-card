@@ -20,8 +20,9 @@ module.exports = React.createClass
     type:null
 
   render:->
+    isAmex = @state.type and @state.type.name is "amex"
     <div className = "#{exp.prefix}__container">
-      <div className = { "#{exp.prefix} " + @typeClassName() + if @props.focused is "cvc" then " #{exp.prefix}--flipped" else ""} >
+      <div className = { "#{exp.prefix} " + @typeClassName() + if @props.focused  is "cvc" and not isAmex then " #{exp.prefix}--flipped" else ""} >
 
         <div className = "#{exp.prefix}__front" >
           <div className = "#{exp.prefix}__lower">
@@ -30,6 +31,7 @@ module.exports = React.createClass
                  className = {"#{exp.prefix}__logo " + @typeClassName()}
                  src = {images[if @props.type then @props.type else @state.type.name]}
             />
+            {if isAmex then <div className = {@displayClassName("cvc_front")}>{@getValue("cvc")}</div>}
             <div className = {@displayClassName("number")}>{@getValue("number")}</div>
             <div className = {@displayClassName("name")}  >{@getValue("name")}</div>
             <div
