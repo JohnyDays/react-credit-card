@@ -100,7 +100,7 @@
           }
         });
       }
-      if (type = validate.cardType(props.number)) {
+      if (type = this.props.type || validate.cardType(props.number)) {
         if (type === "amex") {
           return this.setState({
             type: {

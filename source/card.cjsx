@@ -70,7 +70,7 @@ module.exports = React.createClass
     if !props.number
       return @setState type: name:"unknown", length: 16
 
-    if type = validate.cardType(props.number)
+    if type = @props.type or validate.cardType(props.number)
       if type is "amex"
         return @setState type: name:type, length: 15
       else
