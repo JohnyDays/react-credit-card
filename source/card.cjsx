@@ -14,6 +14,7 @@ module.exports = React.createClass
     name: ''
     expiry: ''
     focused: null
+    namePlaceholder: 'FULL NAME'
     expiryBefore: 'month/year'
     expiryAfter: 'valid thru'
     shinyAfterBack: ''
@@ -108,7 +109,7 @@ module.exports = React.createClass
 
   name:->
     if @props.name is ""
-      return "FULL NAME"
+      return @props.namePlaceholder
     else
       return @props.name
 

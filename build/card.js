@@ -19,6 +19,7 @@
         name: '',
         expiry: '',
         focused: null,
+        namePlaceholder: 'FULL NAME',
         expiryBefore: 'month/year',
         expiryAfter: 'valid thru',
         shinyAfterBack: '',
@@ -153,7 +154,7 @@
     },
     name: function() {
       if (this.props.name === "") {
-        return "FULL NAME";
+        return this.props.namePlaceholder;
       } else {
         return this.props.name;
       }
