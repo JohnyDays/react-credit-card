@@ -40,6 +40,7 @@ React.render(
     - expiry
     - cvc (Upon focusing cvc, the form will be rotated until this is changed.)
     - null
+  - `namePlaceholder`: The text displayed as placeholder of name field (default is: "FULL NAME")
   - `expiryAfter`: The text displayed on the left of the expiry date
   - `expiryBefore`: The text displayed above the expiry date
   - `shinyAfterBack`: The text displayed at the back of the card near the shiny thing
