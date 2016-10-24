@@ -14,7 +14,7 @@
 #### How to install
   
 - `npm install react-credit-card`
-- Add the `build/card.css` and `build/card-types.css` files to your app's stylesheets (This step may be unnecessary in the future)
+- Add the `source/card.css` and `source/card-types.css` files to your app's stylesheets (This step may be unnecessary in the future)
 
 #### How to use (Check the test index.cjsx for a better overview)
 
