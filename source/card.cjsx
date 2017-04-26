@@ -2,9 +2,10 @@
 React   = require('react')
 Payment = require('payment')
 images  = require('./card-images.js')
+createReactClass = require('create-react-class')
 
 validate = Payment.fns
-module.exports = React.createClass
+module.exports = createReactClass
 
   displayName: 'Card'
 

@@ -30,6 +30,7 @@
     "react": "^0.12.2"
   },
   "dependencies": {
+    "create-react-class": "^15.5.2",
     "payment": "^2.1.0"
   }
 }
